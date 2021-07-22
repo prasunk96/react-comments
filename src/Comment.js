@@ -32,18 +32,6 @@ const Comment = ({ comment, type, commentsList, setCommentsList }) => {
     );
   };
 
-  const flattenObjectRecursivly = (object, parent, res = {}) => {
-    for (let key in object) {
-      let keyName = parent ? parent + '_' + key : key;
-      if (typeof object[key] == 'object') {
-        flattenObjectRecursivly(object, keyName, res);
-      } else {
-        res[keyName] = object[key];
-      }
-    }
-    return res;
-  };
-
   const findAndReplaceKeyInObject = (item, find, newReply) => {
     for (let key in item) {
       if (item[key] instanceof Array || typeof item[key] == 'object') {
